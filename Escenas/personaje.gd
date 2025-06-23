@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
 var direccion = Vector2()
-var velocidad = 300
+var velocidad = 5
 
 func _physics_process(delta: float) -> void:
 	direccion = InputManager.get_player_direccion()
 	velocity = direccion * velocidad
-	move_and_slide()
+	move_and_collide(velocity)
 	disparar_animacion(direccion)
 
 func disparar_animacion(direccion: Vector2):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0lb0w22mtxiu"
-path="res://.godot/imported/Panorama_sin_titulo-1-2048x1415.jpg-c92e2b83cf9699ec747733409b567ebc.ctex"
+uid="uid://jtgvddxi5ktt"
+path="res://.godot/imported/background.png-4cb64f01e74ab2b3adb1e0c429f3b75b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Recursos/Panorama_sin_titulo-1-2048x1415.jpg"
-dest_files=["res://.godot/imported/Panorama_sin_titulo-1-2048x1415.jpg-c92e2b83cf9699ec747733409b567ebc.ctex"]
+source_file="res://Recursos/Tilemap/background.png"
+dest_files=["res://.godot/imported/background.png-4cb64f01e74ab2b3adb1e0c429f3b75b.ctex"]
 
 [params]
 

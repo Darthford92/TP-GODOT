@@ -4,23 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://1pd327lq80f7" path="res://Recursos/Enemy.png" id="2_1hbjf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_24lda"]
-radius = 22.0
+radius = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1hbjf"]
-radius = 23.0
+radius = 19.105
 
 [node name="Enemigo" type="CharacterBody2D"]
-position = Vector2(1021, 531)
+position = Vector2(5, 4)
 script = ExtResource("1_24lda")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.320896, 0.31457)
+position = Vector2(-3.75002, -3.87502)
+scale = Vector2(0.264926, 0.263245)
 texture = ExtResource("2_1hbjf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -4)
 shape = SubResource("CircleShape2D_24lda")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-5, -4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_1hbjf")

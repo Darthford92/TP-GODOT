@@ -13,6 +13,16 @@ config_version=5
 config/name="Captura la Bandera"
 run/main_scene="uid://b3jmumsy8rid5"
 config/features=PackedStringArray("4.4", "Forward Plus")
-boot_splash/fullsize=false
-boot_splash/image="uid://c0lb0w22mtxiu"
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

@@ -3,7 +3,6 @@ extends Node2D
 func _ready():
 	print("Main cargado")
 	get_tree().paused = true
-	$Enemigo.pierde.connect(_on_enemigo_pierde)
 	$Menu.visible = true
 	$MenuFinal.visible = false
 	pass

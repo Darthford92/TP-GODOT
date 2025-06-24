@@ -3,4 +3,4 @@
 - Descripción del Proyecto: Este proyecto fue creado para la materia Motores de videojuegos de la UNSO
 - Estado del proyecto: Terminado
 - Tecnologías utilizadas: GODOT
-- Personas Desarrolladoras del Proyecto: Vera Rodrigo, Vilches Luppo Lena, Luca Tauterys Carlo
+- Personas Desarrolladoras del Proyecto: Vera Rodrigo, Vilches Luppo Lena, Carlos Tauterys Luca

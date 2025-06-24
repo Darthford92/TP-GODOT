@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://do63ylks4pads"]
+
+[ext_resource type="Script" uid="uid://c3r7or6t4gxk2" path="res://Escenas/mensaje_final.gd" id="1_v3tg0"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 122.0
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3tg0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 218.0
+offset_right = 258.0
+offset_bottom = 23.0

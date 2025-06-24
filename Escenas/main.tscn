@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3jmumsy8rid5"]
+[gd_scene load_steps=7 format=3 uid="uid://b3jmumsy8rid5"]
 
 [ext_resource type="Script" uid="uid://dhmlhjt2nwc50" path="res://Escenas/main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cu1yepfetxqmd" path="res://Escenas/personaje.tscn" id="2_2ia52"]
 [ext_resource type="PackedScene" uid="uid://csvg02t50kcwq" path="res://Escenas/bandera.tscn" id="3_crgrh"]
 [ext_resource type="Script" uid="uid://btjls62ecl8v2" path="res://Escenas/menú.gd" id="5_2ia52"]
 [ext_resource type="PackedScene" uid="uid://cc44gbniq4q5t" path="res://Escenas/enemigo.tscn" id="5_ktoa8"]
+[ext_resource type="Script" uid="uid://bp4ul33yqiqva" path="res://Escenas/menu_fin.gd" id="6_crgrh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
@@ -28,16 +29,37 @@ offset_left = -2.0
 offset_top = -6.0
 offset_right = 1157.0
 offset_bottom = 655.0
+color = Color(1, 0.510377, 0.176442, 1)
 
 [node name="Jugar" type="Button" parent="Menu/Modaljugar"]
 layout_mode = 0
 offset_left = 464.0
-offset_top = 138.0
+offset_top = 207.0
 offset_right = 692.0
-offset_bottom = 182.0
+offset_bottom = 251.0
 text = "Jugar"
 
-[node name="Volver a jugar" type="Button" parent="Menu/Modaljugar"]
+[node name="Salir" type="Button" parent="Menu/Modaljugar"]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 287.0
+offset_right = 692.0
+offset_bottom = 329.0
+text = "Salir
+"
+
+[node name="MenuFin" type="Node2D" parent="."]
+visible = false
+script = ExtResource("6_crgrh")
+
+[node name="ModalVolverAJugar" type="ColorRect" parent="MenuFin"]
+offset_left = -9.0
+offset_top = -6.0
+offset_right = 1158.0
+offset_bottom = 652.0
+color = Color(0.963088, 0, 0.344308, 1)
+
+[node name="Volver a jugar" type="Button" parent="MenuFin/ModalVolverAJugar"]
 layout_mode = 0
 offset_left = 463.0
 offset_top = 214.0
@@ -45,7 +67,7 @@ offset_right = 691.0
 offset_bottom = 257.0
 text = "Volver a jugar"
 
-[node name="Salir" type="Button" parent="Menu/Modaljugar"]
+[node name="Salir" type="Button" parent="MenuFin/ModalVolverAJugar"]
 layout_mode = 0
 offset_left = 463.0
 offset_top = 287.0
@@ -57,4 +79,8 @@ text = "Salir
 [connection signal="gana" from="Bandera" to="." method="_on_bandera_gana"]
 [connection signal="pierde" from="Bandera" to="." method="_on_bandera_pierde"]
 [connection signal="jugar" from="Menu" to="." method="_on_menu_jugar"]
+[connection signal="salir" from="Menu" to="." method="_on_menu_salir"]
 [connection signal="pressed" from="Menu/Modaljugar/Jugar" to="Menu" method="_on_jugar_pressed"]
+[connection signal="pressed" from="Menu/Modaljugar/Salir" to="Menu" method="_on_salir_pressed"]
+[connection signal="jugar_de_nuevo" from="MenuFin" to="." method="_on_menu_jugar_de_nuevo"]
+[connection signal="salir" from="MenuFin" to="." method="_on_menu_salir"]

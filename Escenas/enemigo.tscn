@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc44gbniq4q5t"]
+[gd_scene load_steps=5 format=3 uid="uid://cc44gbniq4q5t"]
 
 [ext_resource type="Script" uid="uid://b0svtt8x08pqp" path="res://Escenas/enemigo.gd" id="1_24lda"]
 [ext_resource type="Texture2D" uid="uid://1pd327lq80f7" path="res://Recursos/Enemy.png" id="2_1hbjf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jc0jm"]
-radius = 24.0
-height = 52.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_24lda"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1hbjf"]
+radius = 23.0
 
 [node name="Enemigo" type="CharacterBody2D"]
 position = Vector2(1021, 531)
@@ -16,4 +18,11 @@ scale = Vector2(0.320896, 0.31457)
 texture = ExtResource("2_1hbjf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_jc0jm")
+shape = SubResource("CircleShape2D_24lda")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1hbjf")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

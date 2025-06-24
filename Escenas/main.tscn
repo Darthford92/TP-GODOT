@@ -3597,6 +3597,10 @@ offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("7_ktoa8")
 text = "¡Bienvenidos mortales!"
 
+[node name="Sprite2D" type="Sprite2D" parent="SSMain"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SSMain"]
+
 [connection signal="gana" from="Bandera" to="." method="_on_bandera_gana"]
 [connection signal="pierde" from="Bandera" to="." method="_on_bandera_pierde"]
 [connection signal="pierde" from="Enemigo" to="." method="_on_enemigo_pierde"]

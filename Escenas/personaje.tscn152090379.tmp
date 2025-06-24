@@ -97,7 +97,9 @@ _data = {
 }
 
 [node name="Personaje" type="CharacterBody2D"]
+position = Vector2(90, 567)
 script = ExtResource("1_0a5x8")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_vpgkb")

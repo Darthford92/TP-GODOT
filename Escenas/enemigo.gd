@@ -5,7 +5,7 @@ signal pierde
 var movimiento = Vector2()
 var velocidad = 3
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var personaje = get_node_or_null("../Personaje")
 	if personaje:
 		set_vector(personaje.global_position - global_position)
@@ -16,5 +16,5 @@ func set_vector(vector):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Personaje":
-		print("Toqué al personaje")
+		print("Enemigo: Toqué al personaje")
 		emit_signal("pierde")

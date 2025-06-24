@@ -1,17 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3jmumsy8rid5"]
+[gd_scene load_steps=11 format=3 uid="uid://b3jmumsy8rid5"]
 
 [ext_resource type="Script" uid="uid://dhmlhjt2nwc50" path="res://Escenas/main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cu1yepfetxqmd" path="res://Escenas/personaje.tscn" id="2_2ia52"]
 [ext_resource type="PackedScene" uid="uid://csvg02t50kcwq" path="res://Escenas/bandera.tscn" id="3_crgrh"]
 [ext_resource type="Script" uid="uid://btjls62ecl8v2" path="res://Escenas/menú.gd" id="5_2ia52"]
 [ext_resource type="PackedScene" uid="uid://cc44gbniq4q5t" path="res://Escenas/enemigo.tscn" id="5_ktoa8"]
-[ext_resource type="Script" uid="uid://bp4ul33yqiqva" path="res://Escenas/menu_fin.gd" id="6_crgrh"]
+[ext_resource type="Script" uid="uid://nd674dk5wvxk" path="res://Escenas/menu_final.gd" id="6_crgrh"]
+[ext_resource type="FontFile" uid="uid://82ingd7eeq3i" path="res://Recursos/Ancient Medium.ttf" id="7_ktoa8"]
+[ext_resource type="Texture2D" uid="uid://c0lb0w22mtxiu" path="res://Recursos/Panorama_sin_titulo-1-2048x1415.jpg" id="8_1md0r"]
+
+[sub_resource type="Animation" id="Animation_n3qho"]
+resource_name = "Splash_Screen"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8mww"]
+_data = {
+&"Splash_Screen": SubResource("Animation_n3qho")
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
 
 [node name="Personaje" parent="." instance=ExtResource("2_2ia52")]
 position = Vector2(83, 76)
+metadata/_edit_group_ = true
 
 [node name="Bandera" parent="." instance=ExtResource("3_crgrh")]
 position = Vector2(263, 598)
@@ -19,17 +30,18 @@ scale = Vector2(0.0788551, 0.0523001)
 
 [node name="Enemigo" parent="." instance=ExtResource("5_ktoa8")]
 position = Vector2(1005, 589)
+metadata/_edit_group_ = true
 
 [node name="Menu" type="Node2D" parent="."]
 process_mode = 3
 script = ExtResource("5_2ia52")
+metadata/_edit_group_ = true
 
 [node name="Modaljugar" type="ColorRect" parent="Menu"]
 offset_left = -2.0
 offset_top = -6.0
 offset_right = 1157.0
 offset_bottom = 655.0
-color = Color(1, 0.510377, 0.176442, 1)
 
 [node name="Jugar" type="Button" parent="Menu/Modaljugar"]
 layout_mode = 0
@@ -48,33 +60,52 @@ offset_bottom = 329.0
 text = "Salir
 "
 
-[node name="MenuFin" type="Node2D" parent="."]
+[node name="MenuFinal" type="Node2D" parent="."]
+process_mode = 3
 visible = false
 script = ExtResource("6_crgrh")
 
-[node name="ModalVolverAJugar" type="ColorRect" parent="MenuFin"]
-offset_left = -9.0
+[node name="Panel" type="Panel" parent="MenuFinal"]
+offset_left = -3.0
 offset_top = -6.0
-offset_right = 1158.0
-offset_bottom = 652.0
-color = Color(0.963088, 0, 0.344308, 1)
+offset_right = 1164.0
+offset_bottom = 658.0
 
-[node name="Volver a jugar" type="Button" parent="MenuFin/ModalVolverAJugar"]
-layout_mode = 0
-offset_left = 463.0
-offset_top = 214.0
-offset_right = 691.0
-offset_bottom = 257.0
-text = "Volver a jugar"
-
-[node name="Salir" type="Button" parent="MenuFin/ModalVolverAJugar"]
-layout_mode = 0
-offset_left = 463.0
-offset_top = 287.0
+[node name="VolverAJugar" type="Button" parent="MenuFinal/Panel"]
+offset_left = 461.0
+offset_top = 208.0
 offset_right = 692.0
+offset_bottom = 250.0
+text = "Volver a Jugar"
+
+[node name="Salir" type="Button" parent="MenuFinal/Panel"]
+offset_left = 465.0
+offset_top = 287.0
+offset_right = 691.0
 offset_bottom = 329.0
 text = "Salir
 "
+
+[node name="SSMain" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="SSMain"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("7_ktoa8")
+text = "¡Bienvenidos mortales!"
+
+[node name="Sprite2D" type="Sprite2D" parent="SSMain"]
+texture = ExtResource("8_1md0r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SSMain"]
+libraries = {
+&"": SubResource("AnimationLibrary_l8mww")
+}
 
 [connection signal="gana" from="Bandera" to="." method="_on_bandera_gana"]
 [connection signal="pierde" from="Bandera" to="." method="_on_bandera_pierde"]
@@ -82,5 +113,7 @@ text = "Salir
 [connection signal="salir" from="Menu" to="." method="_on_menu_salir"]
 [connection signal="pressed" from="Menu/Modaljugar/Jugar" to="Menu" method="_on_jugar_pressed"]
 [connection signal="pressed" from="Menu/Modaljugar/Salir" to="Menu" method="_on_salir_pressed"]
-[connection signal="jugar_de_nuevo" from="MenuFin" to="." method="_on_menu_jugar_de_nuevo"]
-[connection signal="salir" from="MenuFin" to="." method="_on_menu_salir"]
+[connection signal="salir" from="MenuFinal" to="." method="_on_menu_salir"]
+[connection signal="volver_a_jugar" from="MenuFinal" to="." method="_on_menu_volver_a_jugar"]
+[connection signal="pressed" from="MenuFinal/Panel/VolverAJugar" to="MenuFinal" method="_on_volver_a_jugar_pressed"]
+[connection signal="pressed" from="MenuFinal/Panel/Salir" to="MenuFinal" method="_on_menu_final_salir_pressed"]

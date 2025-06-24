@@ -3587,12 +3587,14 @@ text = "Salir
 "
 
 [node name="SSMain" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="SSMain"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -3600,11 +3602,11 @@ theme_override_fonts/font = ExtResource("7_ktoa8")
 text = "¡Bienvenidos mortales!"
 
 [node name="Sprite2D" type="Sprite2D" parent="SSMain"]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SSMain"]
 
-[connection signal="gana" from="Bandera" to="." method="_on_bandera_gana"]
-[connection signal="pierde" from="Bandera" to="." method="_on_bandera_pierde"]
+[connection signal="bandera_tocada" from="Bandera" to="." method="_on_bandera_bandera_tocada"]
 [connection signal="pierde" from="Enemigo" to="." method="_on_enemigo_pierde"]
 [connection signal="jugar" from="Menu" to="." method="_on_menu_jugar"]
 [connection signal="salir" from="Menu" to="." method="_on_menu_salir"]

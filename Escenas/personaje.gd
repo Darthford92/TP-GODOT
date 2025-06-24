@@ -4,8 +4,7 @@ var direccion = Vector2()
 var velocidad = 5
 
 func _physics_process(_delta):
-	direccion = InputManager.get_player_direccion()
-	velocity = direccion * velocidad
+	_calculate_player_velocity()
 	move_and_collide(velocity)
 	disparar_animacion(direccion)
 
@@ -34,3 +33,8 @@ func disparar_animacion(dir):
 		direction = xDirection
 
 	$AnimationPlayer.play(direction)
+
+func _calculate_player_velocity():
+	direccion = InputManager.get_player_direccion()
+	velocity = direccion * velocidad
+	pass

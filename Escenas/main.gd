@@ -21,22 +21,27 @@ func _on_menu_jugar():
 	$Menu.visible = false
 	pass
 
-# 
+# Cuando se apreta el boton Volver a jugar carga la escena del menú inicial.
 func _on_menu_volver_a_jugar():
 	print("Volver a jugar presionado")
 	get_tree().reload_current_scene()
 	pass
 
+# Cuando se toca el botón de salir del menú inicial cierra el juego o el debugger.
 func _on_menu_salir():
 	print("Salir del juego")
 	get_tree().quit()
 	pass
 
+# Cuando se toca el botón de salir del menú final cierra el juego o el debugger.
 func _on_menu_final_salir() -> void:
 	print("Salir del juego")
 	get_tree().quit()
 	pass
 
+# Cuando la bandera es tocada tanto por el personaje como por el enemigo se printea en consola "Ganó: "
+# y dependiendo de la señal recibida el nombre de quién ganó.
+# También desaparece el personaje, la bandera y el enemigo, pausa el juego y muestra el menú final. 
 func _on_bandera_bandera_tocada(ganador: String) -> void:
 	print("Ganó: ", ganador)
 	get_tree().paused = true
